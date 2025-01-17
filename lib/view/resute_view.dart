@@ -1,3 +1,4 @@
+import 'package:bmi_calculate/view/home_page.dart';
 import 'package:bmi_calculate/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,13 @@ class ResuteView extends StatelessWidget {
           CustomButton(
             name: "RE-CALCULATE",
             click: () {
-              Navigator.pop(context);
+              // Reset global variables to default values
+              selectedGender = Gender.male; // Default gender
+              weight = 60; // Default weight
+              height = 170; // Default height
+              age = 22; // Default age
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
           )
         ],
