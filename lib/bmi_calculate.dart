@@ -1,11 +1,17 @@
 import 'dart:math';
 
 class BMICalculator {
-  BMICalculator({required this.height, required this.weight});
+  BMICalculator({
+    required this.height,
+    required this.weight,
+    required this.gender,
+  });
 
   final double height; // Height in cm
   final double weight; // Weight in kg
   double _bmi = 0;
+  final String gender; // 'male' or 'female'
+
   String category = '';
   String advice = '';
 
@@ -16,6 +22,15 @@ class BMICalculator {
 
     // Calculate BMI
     _bmi = weight / pow(height / 100, 2);
+    print(gender);
+    // Adjust BMI calculation for gender if necessary
+    if (gender.toLowerCase() == "male") {
+      _bmi = _bmi * 1.05; // Example adjustment for males
+    } else if (gender.toLowerCase() == "female") {
+      _bmi = _bmi * 0.95; // Example adjustment for females
+    } else {
+      throw ArgumentError("Gender must be 'male' or 'female'.");
+    }
 
     // Determine category and advice
     category = _getCategory();

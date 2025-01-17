@@ -168,6 +168,7 @@ class _HomePageState extends State<HomePage> {
               BMICalculator calculator = BMICalculator(
                 weight: weight.toDouble(),
                 height: height.toDouble(),
+                gender: selectedGender.name.toString(),
               );
               calculator.calculateBMI();
               Navigator.push(
